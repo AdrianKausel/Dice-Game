@@ -1,5 +1,4 @@
 import React, { useState} from "react";
-import Container from "react-bootstrap/esm/Container";
 import { AwesomeButton } from 'react-awesome-button';
 import Pregunta1 from './Preguntas/Pregunta1'
 import Pregunta2 from './Preguntas/Pregunta2'

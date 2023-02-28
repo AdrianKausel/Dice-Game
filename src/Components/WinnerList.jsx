@@ -14,7 +14,6 @@ library.add(fas)
 function WinnerList() {
 
     const [datas, setDatas] = useState([]);
-    const [reload, setReload] = useState(false)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -25,7 +24,7 @@ function WinnerList() {
             console.log(resp.data.players)
 
         })
-    },[reload])
+    },[])
 
     return (
         <Container>

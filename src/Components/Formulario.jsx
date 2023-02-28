@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
-import Container from 'react-bootstrap/esm/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import ConfettiExplosion from 'react-confetti-explosion';
 
 
@@ -55,7 +53,7 @@ function UserRegister({createData}) {
         <Form onSubmit={add}>
             
             <div>
-            <>{isExploding && <ConfettiExplosion width='2000' />}</>;
+            <>{isExploding && <ConfettiExplosion width='2000' />}</>
             <h1 className='formTitle'> Felicitaciones! Eres el ganador.</h1>
             <h1 className='formTitle'> Ingresa tus datos:</h1>
                 <Form.Group className="mb-3">

@@ -3,10 +3,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import './App.css';
-import Container from 'react-bootstrap/esm/Container';
 import Main from './Components/Main';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';  
 import UserRegister from './Components/Formulario';
 import axios from 'axios';  
@@ -43,7 +40,7 @@ function App() {
     <BrowserRouter>
           <div className='mainPage'>
             <div className='headerTop'>
-            <img className='imageLogo' src={logo}></img>
+            <img className='imageLogo' alt='logo' src={logo}></img>
               <Link className='linkStyle' to='/Home'> Home </Link>
               <Link className='linkStyle' to='/juego'> Juego! </Link> 
               <Link className='linkStyle' to='/ganadores'> Tabla de ganadores </Link> 
