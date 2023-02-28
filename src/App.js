@@ -1,25 +1,62 @@
-import logo from './logo.svg';
+import React,  { useState } from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import './App.css';
+import Container from 'react-bootstrap/esm/Container';
+import Main from './Components/Main';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import 'bootstrap/dist/css/bootstrap.min.css';  
+import UserRegister from './Components/Formulario';
+import axios from 'axios';  
+import logo from './Components/assets/logoitau.png'
+import Home from './Components/Home';
+import WinnerList from './Components/WinnerList';
+import Swal from 'sweetalert2'
 
+
+library.add(fas)
+  
 function App() {
+
+  const [datas, setDatas] = useState([]);
+
+  const addData =(obj) => {
+    return axios.post("http://localhost:8000/api/players/", obj)
+      .then(respn => {
+          if(!respn.data.error){
+            setDatas([...datas, respn.data.players])
+            Swal.fire({
+              title: 'Registro exitoso!',
+              icon: 'success',
+              showConfirmButton: false,
+            })
+            return true
+          }
+          else { return false}
+      })
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+          <div className='mainPage'>
+            <div className='headerTop'>
+            <img className='imageLogo' src={logo}></img>
+              <Link className='linkStyle' to='/Home'> Home </Link>
+              <Link className='linkStyle' to='/juego'> Juego! </Link> 
+              <Link className='linkStyle' to='/ganadores'> Tabla de ganadores </Link> 
+            </div>
+            <Routes>
+              <Route path='/Home' element={<Home/>}/>
+              <Route path='/juego' element={<Main getData={datas}/>}/>
+              <Route path='/registro' element={<UserRegister createData={addData} />} />
+              <Route path='/ganadores' element={<WinnerList/>}/>
+            </Routes>
+          </div>
+    </BrowserRouter>
   );
 }
-
+  
 export default App;
