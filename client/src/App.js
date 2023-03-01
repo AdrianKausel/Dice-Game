@@ -21,7 +21,7 @@ function App() {
 
 
   const addData =(obj) => {
-    return axios.post("http://127.0.0.1:27017/api/players/", obj)
+    return axios.post("http://181.215.135.217:8000/api/players/", obj)
       .then(respn => {
           if(!respn.data.error){
             setDatas([...datas, respn.data.players])
