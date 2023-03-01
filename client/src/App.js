@@ -19,6 +19,7 @@ function App() {
 
   const [datas, setDatas] = useState([]);
 
+
   const addData =(obj) => {
     return axios.post("http://localhost:8000/api/players/", obj)
       .then(respn => {
@@ -41,12 +42,12 @@ function App() {
           <div className='mainPage'>
             <div className='headerTop'>
             <img className='imageLogo' alt='logo' src={logo}></img>
-              <Link className='linkStyle' to='/Home'> Home </Link>
+              <Link className='linkStyle' to='/'> Home </Link>
               <Link className='linkStyle' to='/juego'> Juego! </Link> 
               <Link className='linkStyle' to='/ganadores'> Tabla de ganadores </Link> 
             </div>
             <Routes>
-              <Route path='/Home' element={<Home/>}/>
+              <Route path='/' element={<Home/>}/>
               <Route path='/juego' element={<Main getData={datas}/>}/>
               <Route path='/registro' element={<UserRegister createData={addData} />} />
               <Route path='/ganadores' element={<WinnerList/>}/>

@@ -52,7 +52,7 @@
 }
 .questionBlock{
   color: white;
-  font-size: calc(2px + 2vw);
+  font-size: calc(2px + 3.5vh);
   text-align: center;
   margin-left: 10vh;
   margin-right: 10vh;
@@ -127,9 +127,11 @@
 
   margin-bottom: 2%;
   text-align: center;
-  font-size: calc(15px + 2vw);
+  font-size: calc(12px + 2vw);
+  margin-top: 3vh;
+  margin-bottom: 3vh;
 }
-
+  
 .registerBox{
   color: white;
   font-family: 'Lato', sans-serif;
