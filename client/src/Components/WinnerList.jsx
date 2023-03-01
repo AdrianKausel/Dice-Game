@@ -18,7 +18,7 @@ function WinnerList() {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        axios.get("http://localhost:8000/api/players/")
+        axios.get("http://127.0.0.1:27017/api/players/")
         .then (resp => {
             if(!resp.data.error)
             setDatas(resp.data.players);
